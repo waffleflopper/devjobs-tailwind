@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body {
+		@apply text-gray-800;
+	}
+	h1,
+	h2,
+	h3,
+	h4 {
+		@apply text-black dark:text-white;
+	}
+	h1 {
+		@apply text-[1.75rem] font-bold leading-9;
+	}
+	h2 {
+		@apply text-2xl font-bold leading-7;
+	}
+	h3 {
+		@apply text-xl font-bold leading-6;
+	}
+	h4 {
+		@apply text-sm font-bold leading-5;
+	}
+	p {
+		@apply text-base leading-loose;
+	}
+	a,
+	a:link,
+	a:visited {
+		@apply text-indigo-800 font-bold hover:bg-indigo-800 hover:text-white;
+	}
+	a:focus-visible {
+		@apply outline-none bg-indigo-700 text-white;
+	}
+}
