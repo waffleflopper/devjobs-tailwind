@@ -1,5 +1,7 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
+	import TextInput from '$components/TextInput.svelte';
+	import InputGroup from '$components/InputGroup.svelte';
 </script>
 
 <h1>Welcome to SvelteKit</h1>
@@ -7,7 +9,7 @@
 	Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
 </p>
 
-<Button>Documentation</Button>
+<Button>Primary</Button><Button theme="secondary">Secondary</Button>
 <h1>Heading 1</h1>
 <h2>Heading 2</h2>
 <h3>Heading 3</h3>
@@ -19,3 +21,13 @@
 	Repellendus fuga officia, omnis quaerat molestias voluptate.
 </p>
 <a href="#top">I'm a link</a>
+
+<TextInput name="textInput" placeholder="search..." />
+
+<InputGroup>
+	<TextInput name="inputGroup" placeholder="input group" />
+	<TextInput name="inputGroup" placeholder="input group" />
+</InputGroup>
+
+<style lang="postcss">
+</style>

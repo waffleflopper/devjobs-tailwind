@@ -2,31 +2,35 @@
 	import moon from '$assets/desktop/icon-moon.svg';
 	import sun from '$assets/desktop/icon-sun.svg';
 	import { onMount } from 'svelte';
-	import { SvelteComponentDev } from 'svelte/internal';
+	import Toggle from './Toggle.svelte';
 	let dark: boolean;
 	let hidden: boolean = true;
-	let checked = false;
+	//will let us hide the element until everything is mounted and initial theme is selected.
 
-	//get our initial value of dark based on if it's set on the html tag
+	//mount it baby
 	onMount(() => {
+		//initial value can be if it's set or not
 		dark = document.documentElement.classList.contains('dark');
 
 		hidden = false;
 
 		const themeListener = window.matchMedia('(prefers-color-scheme: dark)');
-		themeListener.addEventListener('change', handleThemeChange);
+		themeListener.addEventListener('change', handleChange);
 
-		return () => themeListener.removeEventListener('change', handleThemeChange);
+		//remove it when we unmount
+		return () => themeListener.removeEventListener('change', handleChange);
 	});
 
-	function handleThemeChange({ matches: dark }: MediaQueryListEvent) {
+	function handleChange({ matches: dark }: MediaQueryListEvent) {
+		// only need to set if we don't have the theme being overridee
 		if (!localStorage.theme) {
 			setMode(dark);
 		}
 	}
 
-	function setMode(value: boolean) {
-		dark = value;
+	function setMode(val: boolean) {
+		dark = val;
+
 		if (dark) {
 			document.documentElement.classList.add('dark');
 		} else {
@@ -35,29 +39,24 @@
 
 		localStorage.theme = dark ? 'dark' : 'light';
 
-		//since we aren't using drop down selection, if the theme matches the preference on the browser, just remove the store
-		if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+		//use the color preference as kind of a local store, letting a reset to auto happen if prefered theme matches chosen theme
+		if (window.matchMedia(`(prefers-color-scheme: ${localStorage.theme})`).matches) {
 			localStorage.removeItem('theme');
 		}
 	}
 
-	function toggleDarkMode() {
+	function toggleDark() {
 		setMode(!dark);
 	}
 </script>
 
 <svelte:head>
-	<!--good place to pop in this little script to prevent FOUC-->
-	<!--good place to pop in this little script to prevent FOUC-->
-	<!--good place to pop in this little script to prevent FOUC-->
-	<!--good place to pop in this little script to prevent FOUC-->
-	<!--good place to pop in this little script to prevent FOUC-->
 	<script>
 		if (
 			localStorage.theme === 'dark' ||
 			(!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
 		) {
-			//dark is in local storage/preference is dark
+			//dark set in local storage or not set but prefers dark is one
 			document.documentElement.classList.add('dark');
 		} else {
 			document.documentElement.classList.remove('dark');
@@ -65,4 +64,4 @@
 	</script>
 </svelte:head>
 
-<input type="checkbox" id="dark-mode" bind:checked on:click={toggleDarkMode} />
+<Toggle name="darkmode-switch" checked={dark} on:click={toggleDark} />

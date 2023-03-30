@@ -10,11 +10,17 @@
 </script>
 
 {#if variant !== 'link'}
-	<button class={theme}><slot /></button>
+	<button class="btn {theme}"><slot /></button>
 {/if}
 
 <style lang="postcss">
+	.btn {
+		@apply w-32 h-12 rounded text-white bg-gray-700 hover:bg-gray-600 font-bold active:bg-gray-700;
+	}
 	.primary {
-		@apply bg-indigo-800 text-white font-bold p-1;
+		@apply bg-[#5964E0] text-white font-bold p-1 hover:bg-[#939BF4] active:bg-[#5964E0];
+	}
+	.secondary {
+		@apply bg-indigo-200 text-indigo-800 hover:bg-indigo-300 active:bg-indigo-200 dark:bg-[#6E8098] dark:hover:bg-[#9DAEC2] dark:text-white m-2 dark:active:bg-[#6e8098];
 	}
 </style>
