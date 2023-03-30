@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
-	import TextInput from '$components/TextInput.svelte';
-	import InputGroup from '$components/InputGroup.svelte';
+	import FilterBarMobile from '$src/lib/components/FilterBarMobile.svelte';
 </script>
 
 <h1>Welcome to SvelteKit</h1>
@@ -21,13 +20,6 @@
 	Repellendus fuga officia, omnis quaerat molestias voluptate.
 </p>
 <a href="#top">I'm a link</a>
-
-<TextInput name="textInput" placeholder="search..." />
-
-<InputGroup>
-	<TextInput name="inputGroup" placeholder="input group" />
-	<TextInput name="inputGroup" placeholder="input group" />
-</InputGroup>
 
 <style lang="postcss">
 </style>
