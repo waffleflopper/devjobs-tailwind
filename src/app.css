@@ -5,7 +5,7 @@
 
 @layer base {
 	body {
-		@apply text-gray-800;
+		@apply text-[#6E8098]  bg-[#F4F6F8] dark:bg-[#121721];
 	}
 	h1,
 	h2,
@@ -31,7 +31,7 @@
 	a,
 	a:link,
 	a:visited {
-		@apply text-indigo-800 font-bold hover:bg-indigo-800 hover:text-white;
+		@apply text-[#5964E0] font-bold hover:bg-[#5964E0] hover:text-white;
 	}
 	a:focus-visible {
 		@apply outline-none bg-indigo-700 text-white;
