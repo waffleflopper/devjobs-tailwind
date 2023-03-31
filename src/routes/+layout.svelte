@@ -2,9 +2,10 @@
 	import '$src/app.css';
 	import ThemerToggle from '$components/ThemerToggle.svelte';
 	import FilterBarMobile from '$components/FilterBarMobile.svelte';
+	import InputGroup from '$components/InputGroup.svelte';
 
 	let screenWidth: number = 0;
-	let sm: number = 640;
+	let sm: number = 715;
 </script>
 
 <svelte:window bind:innerWidth={screenWidth} />
@@ -20,10 +21,12 @@
 		}
 	</style>
 </svelte:head>
-<div class="w-full max-w-[80%] md:max-w-[70%] mx-auto mt-6">
+<div class="w-full max-w-[80%] mx-auto mt-6">
 	<ThemerToggle />
 	{#if screenWidth < sm}
 		<FilterBarMobile name="textInput" placeholder="Filter by title..." />
+	{:else}
+		<InputGroup />
 	{/if}
 	<slot />
 </div>
