@@ -9,13 +9,13 @@
 	<input
 		type="text"
 		placeholder="Filter by title, company, experience..."
-		class="h-20 px-7 border-solid shadow-sm -mt-px -ml-px mr-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-l-lg sm:mt-0 sm:first:ml-0 sm:first:rounded-tr-none sm:last:rounded-bl-none sm:last:rounded-r-lg relative dark:bg-[--light-midnight] focus:outline-none larger"
+		class="min-w-[11.25rem] h-20 px-7 border-solid shadow-sm -mt-px -ml-px mr-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-l-lg sm:mt-0 sm:first:ml-0 sm:first:rounded-tr-none sm:last:rounded-bl-none sm:last:rounded-r-lg relative dark:bg-[--light-midnight] focus:outline-none larger"
 	/>
 	<div class="divider" />
 	<input
 		type="text"
 		placeholder="Filter by location..."
-		class="h-20 px-7 flex-1 shadow-sm -mt-px -ml-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-l-lg sm:mt-0 sm:first:ml-0 sm:first:rounded-tr-none sm:last:rounded-bl-none sm:last:rounded-r-lg relative dark:bg-[--light-midnight] focus:outline-none"
+		class="min-w-[11rem] h-20 px-7 flex-1 shadow-sm -mt-px -ml-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-l-lg sm:mt-0 sm:first:ml-0 sm:first:rounded-tr-none sm:last:rounded-bl-none sm:last:rounded-r-lg relative dark:bg-[--light-midnight] focus:outline-none"
 	/>
 	<div class="divider" />
 
@@ -25,7 +25,7 @@
 
 <style lang="postcss">
 	.divider {
-		@apply w-px h-20 bg-[#6E8098] opacity-20;
+		@apply w-px h-20 bg-[#6E8098] opacity-20 min-w-[1px];
 	}
 	.larger {
 		flex: 1.3;
