@@ -3,12 +3,12 @@
 	import ThemerToggle from '$components/ThemerToggle.svelte';
 	import FilterBarMobile from '$components/FilterBarMobile.svelte';
 	import InputGroup from '$components/InputGroup.svelte';
+	import { innerWidth, mobileBreak } from '$lib/data/stores';
 
 	let screenWidth: number = 0;
-	let sm: number = 715;
 </script>
 
-<svelte:window bind:innerWidth={screenWidth} />
+<svelte:window bind:innerWidth={$innerWidth} />
 <svelte:head>
 	<style>
 		:root {
@@ -23,10 +23,11 @@
 </svelte:head>
 <div class="w-full max-w-[80%] mx-auto mt-6">
 	<ThemerToggle />
-	{#if screenWidth < sm}
+	{#if $innerWidth < $mobileBreak}
 		<FilterBarMobile name="textInput" placeholder="Filter by title..." />
 	{:else}
 		<InputGroup />
 	{/if}
+	{$innerWidth}
 	<slot />
 </div>
