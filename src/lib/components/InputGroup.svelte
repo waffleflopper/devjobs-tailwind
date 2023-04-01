@@ -5,7 +5,7 @@
 </script>
 
 <div
-	class="flex shadow-sm bg-white dark:bg-[--light-midnight] rounded-lg items-center justify-center gap-px"
+	class="flex shadow-sm bg-white dark:bg-[--light-midnight] rounded-lg items-center justify-center gap-px p-1 z-10"
 >
 	<div
 		class="flex-1 before:z-10 before:absolute before:bg-[url('$assets/desktop/icon-search.svg')] before:w-6 before:h-6 before:bg-no-repeat before:bg-center before:top-7 before:left-5 relative"
