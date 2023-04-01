@@ -1,10 +1,15 @@
 <script lang="ts">
 	export let theme: 'primary' | 'secondary' | 'transparent' = 'primary';
-	export let variant: 'button' | 'link' | 'icon' = 'button';
+	export let variant: 'button' | 'link' | 'icon' | 'nav-button' = 'button';
 	export let className: string = '';
 	export let name: string = '';
+	import { innerWidth, tabletBreak } from '$lib/data/stores';
+
+	$: reactiveWidth = variant === 'nav-button' ? ($innerWidth > $tabletBreak ? 'w-32' : 'w-24') : '';
+
 	let styles = {
-		button: 'w-32 h-12 rounded',
+		button: ` h-12 rounded`,
+		'nav-button': ` h-12 rounded`,
 		link: '',
 		primary: 'bg-[#5964E0] text-white font-bold p-1 hover:bg-[#939BF4] active:bg=[#5964E0]',
 		secondary:
@@ -16,5 +21,5 @@
 </script>
 
 {#if variant !== 'link'}
-	<button {name} id={name} class={classes}><slot /></button>
+	<button {name} id={name} class="{classes} {reactiveWidth}"><slot /></button>
 {/if}
