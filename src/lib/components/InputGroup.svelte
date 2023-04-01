@@ -13,7 +13,7 @@
 		<input
 			type="text"
 			placeholder="Filter by title{$innerWidth > $tabletBreak ? ', company, experience...' : '...'}"
-			class="min-w-[11.25rem] w-full h-20 pr-1 pl-14 border-solid shadow-sm -mt-px -ml-px mr-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-l-lg sm:mt-0 sm:first:ml-0 sm:first:rounded-tr-none sm:last:rounded-bl-none sm:last:rounded-r-lg relative dark:bg-[--light-midnight] focus:outline-none larger"
+			class="min-w-[11.25rem] w-full h-20 pr-1 pl-14 border-solid -mt-px -ml-px mr-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-l-lg sm:mt-0 sm:first:ml-0 sm:first:rounded-tr-none sm:last:rounded-bl-none sm:last:rounded-r-lg relative dark:bg-[--light-midnight] focus:outline-none larger"
 		/>
 	</div>
 	<div class="divider" />
@@ -23,13 +23,15 @@
 		<input
 			type="text"
 			placeholder="Filter by location..."
-			class="min-w-[11rem] w-full h-20 pl-14 pr-1 shadow-sm -mt-px -ml-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-l-lg sm:mt-0 sm:first:ml-0 sm:first:rounded-tr-none sm:last:rounded-bl-none sm:last:rounded-r-lg relative dark:bg-[--light-midnight] focus:outline-none"
+			class="min-w-[11rem] w-full h-20 pl-14 pr-1 -mt-px -ml-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-l-lg sm:mt-0 sm:first:ml-0 sm:first:rounded-tr-none sm:last:rounded-bl-none sm:last:rounded-r-lg relative dark:bg-[--light-midnight] focus:outline-none"
 		/>
 	</div>
 	<div class="divider" />
 
-	<Checkbox />
-	<Button theme="primary" variant="nav-button" name="searchButton" className="mx-4">Search</Button>
+	<Checkbox>Full-Time{$innerWidth > $tabletBreak ? ' Only' : ''}</Checkbox>
+	<Button theme="primary" variant="button" staticWidth={false} name="searchButton" className="mx-4"
+		>Search</Button
+	>
 </div>
 
 <style lang="postcss">

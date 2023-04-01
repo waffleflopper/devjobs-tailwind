@@ -4,7 +4,7 @@
 	import { onMount } from 'svelte';
 	import { svgs } from '$assets/icons';
 	export let className = '';
-	export let src: string = '';
+
 	export let svg: IconTypes = 'search';
 
 	onMount(() => {

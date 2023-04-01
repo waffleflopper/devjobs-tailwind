@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
-	import FilterBarMobile from '$src/lib/components/FilterBarMobile.svelte';
 </script>
 
 <h1>Welcome to SvelteKit</h1>
@@ -20,6 +19,3 @@
 	Repellendus fuga officia, omnis quaerat molestias voluptate.
 </p>
 <a href="#top">I'm a link</a>
-
-<style lang="postcss">
-</style>
