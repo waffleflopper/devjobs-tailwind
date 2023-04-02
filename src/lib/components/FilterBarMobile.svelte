@@ -23,7 +23,7 @@
 		type="text"
 		id={name}
 		{placeholder}
-		class="w-full h-20 border-none px-6 rounded-md dark:bg-[--light-midnight] bg-white focus:outline-none focus:outline-indigo-800 focus:-outline-offset-1"
+		class="w-full h-20 border-none px-6 rounded-md dark:bg-[--light-midnight] bg-white focus:outline-none shadow-sm"
 	/>
 	<Button
 		name="search"
