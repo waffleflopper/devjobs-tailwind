@@ -17,6 +17,7 @@
 		class:transparent={theme === 'transparent'}
 		class:tablet={$innerWidth < $tabletBreak && !staticWidth}
 		class:icon={variant === 'icon'}
+		on:click
 	>
 		<slot /></button
 	>

@@ -25,9 +25,9 @@
 </svelte:head>
 <div
 	id="bg"
-	class="absolute top-0 left-0 right-0 w-full h-40 bg-left-top -z-10 background"
+	class="absolute top-0 left-0 right-0 w-full h-40 bg-left-top -z-10 background bg-[url('$assets/mobile/bg-pattern-header.svg')]"
 	class:mobileBg={headerPath === 'mobile'}
-	class:desktopBg={headerPath === 'desktop' || 'tablet'}
+	class:desktopBg={headerPath === 'desktop' || headerPath === 'tablet'}
 />
 <Header>
 	<div class="flex h-[7.5rem] items-center">
