@@ -58,7 +58,7 @@
 		id="modal"
 		use:modalAction
 		tabindex="0"
-		class="fixed top-0 left-0 flex items-center justify-center w-full h-[100dvh]"
+		class="fixed top-0 left-0 flex z-20 items-center justify-center w-full h-[100dvh]"
 	>
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<div id="modal-blackout" class="absolute w-full h-full bg-black/40" on:click={close} />
