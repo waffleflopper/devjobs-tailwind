@@ -1,5 +1,6 @@
 <script context="module" lang="ts">
 	const modalList: HTMLElement[] = [];
+	import { fly, fade } from 'svelte/transition';
 </script>
 
 <script lang="ts">
@@ -59,10 +60,12 @@
 		use:modalAction
 		tabindex="0"
 		class="fixed top-0 left-0 flex z-20 items-center justify-center w-full h-[100dvh]"
+		transition:fade={{ duration: 100 }}
 	>
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<div id="modal-blackout" class="absolute w-full h-full bg-black/40" on:click={close} />
 		<div
+			transition:fly={{ y: 200, duration: 150 }}
 			id="modal-content"
 			class="z-10 max-w-[90%] min-w-[85%] rounded bg-white dark:bg-[--light-midnight] overflow-hidden"
 		>
