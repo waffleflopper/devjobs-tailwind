@@ -2,6 +2,10 @@
 	import jobs from '$lib/data/data.json';
 	import JobGrid from '$components/JobGrid.svelte';
 	import JobCard from '$components/JobCard.svelte';
+
+	import * as api from '$lib/data/api';
+
+	console.log(api.getJobsByAny('senior'));
 </script>
 
 <JobGrid>
