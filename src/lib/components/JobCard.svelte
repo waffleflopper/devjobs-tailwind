@@ -4,7 +4,7 @@
 </script>
 
 <div
-	class="relative h-[14.25rem] bg-white rounded-md shadow-sm dark:bg-[--light-midnight] pt-12 p-8 flex flex-col mt-8 max-w-[350px] w-full"
+	class="relative h-[14.25rem] bg-white rounded-md shadow-sm dark:bg-[--light-midnight] pt-12 p-8 flex flex-col mt-8"
 >
 	<div
 		class="h-[50px] w-[50px] grid place-items-center rounded-2xl absolute -top-[25px] left-8"
