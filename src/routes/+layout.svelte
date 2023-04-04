@@ -45,7 +45,7 @@
 		<InputGroup />
 	{/if}
 </Header>
-<div class="w-full max-w-[80%] mx-auto mt-6">
+<div class="w-full max-w-[80%] mx-auto my-6">
 	<slot />
 </div>
 
