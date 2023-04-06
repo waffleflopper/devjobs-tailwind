@@ -1,10 +1,10 @@
 <script lang="ts">
-	import moon from '$assets/desktop/icon-moon.svg';
-	import sun from '$assets/desktop/icon-sun.svg';
 	import { onMount } from 'svelte';
 	import Toggle from './Toggle.svelte';
+	import { svgs } from '$assets/icons';
 	let dark: boolean;
 	let hidden: boolean = true;
+
 	//will let us hide the element until everything is mounted and initial theme is selected.
 
 	//mount it baby
@@ -64,4 +64,8 @@
 	</script>
 </svelte:head>
 
-<Toggle name="darkmode-switch" checked={dark} on:click={toggleDark} />
+<div class="flex gap-2 items-center fill-white justify-evenly">
+	{@html svgs.sun}
+	<Toggle name="darkmode-switch" checked={dark} on:click={toggleDark} />
+	{@html svgs.moon}
+</div>

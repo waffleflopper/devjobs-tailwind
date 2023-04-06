@@ -40,15 +40,15 @@
 	}
 	.toggle::before {
 		content: '';
-		@apply w-[1.15rem] h-[1.15rem] rounded-full bg-indigo-800 absolute top-[0.2rem] left-[0.2rem] duration-150 ease-out transition-transform;
+		@apply w-[1.15rem] h-[1.15rem] rounded-full bg-[--violet] absolute top-[0.2rem] left-[0.2rem] duration-150 ease-out transition-transform;
 	}
 	.toggle:checked::before {
 		@apply translate-x-[130%];
 	}
 	.toggle:hover::before {
-		@apply bg-indigo-700;
+		@apply bg-[--light-violet];
 	}
 	.toggle:focus-visible {
-		@apply outline-none outline-indigo-800 outline-offset-[-1px];
+		@apply outline-none outline-[--violet] outline-offset-[-1px];
 	}
 </style>
