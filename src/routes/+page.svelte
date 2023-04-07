@@ -1,11 +1,11 @@
 <script lang="ts">
-	import jobs from '$lib/data/data.json';
+	export let data;
 	import JobGrid from '$components/JobGrid.svelte';
 	import JobCard from '$components/JobCard.svelte';
 
 	import * as api from '$lib/data/api';
 
-	console.log(api.getJobsByAny('senior'));
+	$: jobs = api.getJobsByLocation('United States');
 </script>
 
 <JobGrid>
