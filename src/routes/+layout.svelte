@@ -5,9 +5,16 @@
 	import InputGroup from '$components/InputGroup.svelte';
 	import Header from '$components/Header.svelte';
 	import { innerWidth, mobileBreak, tabletBreak } from '$lib/data/stores';
+	import type { searchParams } from '$src/lib/data/types';
+
+	export let data;
 
 	$: headerPath =
 		$innerWidth < $mobileBreak ? 'mobile' : $innerWidth < $tabletBreak ? 'tablet' : 'desktop';
+
+	function handleMessageDispatch(event: CustomEvent<{ params: searchParams }>) {
+		console.log(event.detail.params);
+	}
 </script>
 
 <svelte:window bind:innerWidth={$innerWidth} />
@@ -40,7 +47,11 @@
 		</div>
 	</div>
 	{#if $innerWidth < $mobileBreak}
-		<FilterBarMobile name="textInput" placeholder="Filter by title..." />
+		<FilterBarMobile
+			name="textInput"
+			placeholder="Filter by title..."
+			on:message={handleMessageDispatch}
+		/>
 	{:else}
 		<InputGroup />
 	{/if}

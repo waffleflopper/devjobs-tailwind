@@ -1,7 +1,14 @@
-import data from '$lib/data/data.json';
+import raw from '$lib/data/data.json';
+import type { Job } from './types';
+
+const data: Job[] = raw as Job[];
 //why did i use toUpperCase()? Because I'm being lazy, that's why.
 export const getJob = (id: number) => {
 	return data.find((job) => job.id === id);
+};
+
+export const getJobs = () => {
+	return data;
 };
 
 export const getJobsByLocation = (location: string) => {

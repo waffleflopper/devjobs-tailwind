@@ -2,6 +2,21 @@
 	import Button from '$components/Button.svelte';
 	import Checkbox from './Checkbox.svelte';
 	import { innerWidth, tabletBreak } from '$lib/data/stores';
+	import { createEventDispatcher } from 'svelte';
+	import type { searchParams } from '$lib/data/types';
+
+	const dispatch = createEventDispatcher<{ message: { params: searchParams } }>();
+
+	function onSearchClick() {
+		let params: searchParams = {};
+		if (queryValue) params.query = queryValue;
+		if (locationValue) params.location = locationValue;
+		if (fullTimeOnly) params.contract = 'Full Time';
+
+		dispatch('message', {
+			params: params
+		});
+	}
 </script>
 
 <div

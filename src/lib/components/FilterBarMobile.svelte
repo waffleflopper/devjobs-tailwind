@@ -4,14 +4,25 @@
 	import Icon from './Icon.svelte';
 	import Modal from './Modal.svelte';
 	import Checkbox from './Checkbox.svelte';
+	import type { searchParams } from '../data/types';
 	export let placeholder: string = '';
 	export let name: string;
-	export let value: string = '';
 
-	const dispatch = createEventDispatcher();
-	function onFilterClick() {
-		dispatch('filterClick', {
-			openFilterModal: true
+	// !search params
+	let queryValue: string = '';
+	let locationValue: string = '';
+	let fullTimeOnly: boolean = false;
+
+	const dispatch = createEventDispatcher<{ message: { params: searchParams } }>();
+
+	function onSearchClick() {
+		let params: searchParams = {};
+		if (queryValue) params.query = queryValue;
+		if (locationValue) params.location = locationValue;
+		if (fullTimeOnly) params.contract = 'Full Time';
+
+		dispatch('message', {
+			params: params
 		});
 	}
 </script>
@@ -19,7 +30,7 @@
 <div class="relative w-full">
 	<input
 		{name}
-		bind:value
+		bind:value={queryValue}
 		type="text"
 		id={name}
 		{placeholder}
@@ -30,6 +41,7 @@
 		theme="primary"
 		variant="icon"
 		className="absolute right-6 top-[calc(50%-1.5rem)] primary fill-white"
+		on:click={onSearchClick}
 	>
 		<Icon svg="search" className="fill-white" /></Button
 	>
@@ -53,13 +65,14 @@
 				type="text"
 				placeholder="Filter by location..."
 				class="flex-1 h-[4.5rem] pl-16 border-b dark:border-b-gray-500/20 bg-white dark:bg-[--light-midnight] focus:outline-none"
+				bind:value={locationValue}
 			/>
 		</div>
 		<div slot="body" class="px-2 my-6">
-			<Checkbox>Full Time Only</Checkbox>
+			<Checkbox bind:checked={fullTimeOnly}>Full Time Only</Checkbox>
 		</div>
 		<div slot="footer" let:modalState={{ close }} class="flex px-6">
-			<Button on:click={close} className="flex-1 mb-4">Search</Button>
+			<Button on:click={close} className="flex-1 mb-4">Close</Button>
 		</div>
 	</Modal>
 </div>

@@ -1,5 +1,8 @@
+import { getJobs } from '$src/lib/data/api';
+import type { Job } from '$src/lib/data/types';
 import type { LayoutServerLoad } from './$types';
-import jobs from '$lib/data/data.json';
+
+const jobs: Job[] = getJobs();
 
 export const load = (async () => {
 	return {
