@@ -16,7 +16,7 @@
 <Header>
 	<div class="flex h-[7.5rem] items-center">
 		<a href="/" aria-label="Home Link" class="hover:bg-transparent"
-			><img class=" justify-self-start" src="/src/assets/desktop/logo.svg" alt="logo" /></a
+			><img class=" justify-self-start" src="./logo.svg" alt="logo" /></a
 		>
 		<div class="flex justify-end flex-1">
 			<ThemerToggle />
