@@ -1,20 +1,11 @@
 <script lang="ts">
 	import '$src/app.css';
 	import ThemerToggle from '$components/ThemerToggle.svelte';
-	import FilterBarMobile from '$components/FilterBarMobile.svelte';
-	import InputGroup from '$components/InputGroup.svelte';
 	import Header from '$components/Header.svelte';
-	import { innerWidth, mobileBreak, tabletBreak } from '$lib/data/stores';
-	import type { searchParams } from '$src/lib/data/types';
-
-	export let data;
+	import { innerWidth, mobileBreak, tabletBreak, devJobs } from '$lib/data/stores';
 
 	$: headerPath =
 		$innerWidth < $mobileBreak ? 'mobile' : $innerWidth < $tabletBreak ? 'tablet' : 'desktop';
-
-	function handleMessageDispatch(event: CustomEvent<{ params: searchParams }>) {
-		console.log(event.detail.params);
-	}
 </script>
 
 <svelte:window bind:innerWidth={$innerWidth} />
@@ -46,15 +37,6 @@
 			<ThemerToggle />
 		</div>
 	</div>
-	{#if $innerWidth < $mobileBreak}
-		<FilterBarMobile
-			name="textInput"
-			placeholder="Filter by title..."
-			on:message={handleMessageDispatch}
-		/>
-	{:else}
-		<InputGroup />
-	{/if}
 </Header>
 <div class="w-full max-w-[80%] mx-auto my-6">
 	<slot />

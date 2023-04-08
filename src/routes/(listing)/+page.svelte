@@ -1,16 +1,12 @@
 <script lang="ts">
-	export let data;
 	import JobGrid from '$components/JobGrid.svelte';
 	import JobCard from '$components/JobCard.svelte';
-
-	import * as api from '$lib/data/api';
-
-	$: jobs = api.getJobsByLocation('United States');
+	import { devJobs } from '$lib/data/stores';
 </script>
 
 <JobGrid>
-	{#each jobs as job}
-		<JobCard logo={job.logo} color={job.logoBackground}>
+	{#each $devJobs as job}
+		<JobCard logo={job.logo} color={job.logoBackground} id={job.id}>
 			<svelte:fragment slot="postedAt">{job.postedAt}</svelte:fragment>
 			<svelte:fragment slot="contract">{job.contract}</svelte:fragment>
 			<svelte:fragment slot="position">{job.position}</svelte:fragment>

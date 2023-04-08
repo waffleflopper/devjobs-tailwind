@@ -1,10 +1,14 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	export let logo: string;
 	export let color: string;
+	export let id: number;
 </script>
 
 <div
-	class="relative h-[14.25rem] bg-white rounded-md shadow-sm dark:bg-[--light-midnight] pt-12 p-8 flex flex-col mt-8"
+	class="relative h-[14.25rem] bg-white rounded-md shadow-sm dark:bg-[--light-midnight] pt-12 p-8 flex flex-col mt-8 cursor-pointer"
+	on:click={() => goto(`/jobs/${id}`)}
+	on:keypress={() => goto(`/jobs/${id}`)}
 >
 	<div
 		class="h-[50px] w-[50px] grid place-items-center rounded-2xl absolute -top-[25px] left-8"
