@@ -5,9 +5,29 @@
 	import { createEventDispatcher } from 'svelte';
 	import type { searchParams } from '$lib/data/types';
 
+	let queryValue: string = '';
+	let locationValue: string = '';
+	let fullTimeOnly = false;
+
 	const dispatch = createEventDispatcher<{ message: { params: searchParams } }>();
 
-	function onSearchClick() {
+	function changeContract() {
+		fullTimeOnly = !fullTimeOnly;
+		search();
+	}
+	/**
+	 * TODO: What type is this in sveltekit?
+	 */
+	function changeLocation(e: any) {
+		locationValue = e.target.value;
+		search();
+	}
+	function changeQuery(e: any) {
+		queryValue = e.target.value;
+		search();
+	}
+
+	function search() {
 		let params: searchParams = {};
 		if (queryValue) params.query = queryValue;
 		if (locationValue) params.location = locationValue;
@@ -29,6 +49,7 @@
 			type="text"
 			placeholder="Filter by title{$innerWidth > $tabletBreak ? ', company, experience...' : '...'}"
 			class="min-w-[11.25rem] w-full h-20 pr-1 pl-14 border-solid -mt-px -ml-px mr-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-l-lg sm:mt-0 sm:first:ml-0 sm:first:rounded-tr-none sm:last:rounded-bl-none sm:last:rounded-r-lg relative dark:bg-[--light-midnight] focus:outline-none larger"
+			on:input={changeQuery}
 		/>
 	</div>
 	<div class="divider" />
@@ -39,11 +60,14 @@
 			type="text"
 			placeholder="Filter by location..."
 			class="min-w-[11rem] w-full h-20 pl-14 pr-1 -mt-px -ml-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-l-lg sm:mt-0 sm:first:ml-0 sm:first:rounded-tr-none sm:last:rounded-bl-none sm:last:rounded-r-lg relative dark:bg-[--light-midnight] focus:outline-none"
+			on:input={changeLocation}
 		/>
 	</div>
 	<div class="divider" />
 
-	<Checkbox>Full-Time{$innerWidth > $tabletBreak ? ' Only' : ''}</Checkbox>
+	<Checkbox on:input={changeContract} bind:checked={fullTimeOnly}
+		>Full-Time{$innerWidth > $tabletBreak ? ' Only' : ''}</Checkbox
+	>
 	<Button theme="primary" variant="button" staticWidth={false} name="searchButton" className="mx-4"
 		>Search</Button
 	>

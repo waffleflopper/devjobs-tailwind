@@ -24,6 +24,10 @@
 		dispatch('message', {
 			params: params
 		});
+
+		fullTimeOnly = false;
+		queryValue = '';
+		locationValue = '';
 	}
 </script>
 

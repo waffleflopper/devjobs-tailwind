@@ -3,7 +3,7 @@ import type { Job } from './types';
 
 const data: Job[] = raw as Job[];
 //why did i use toUpperCase()? Because I'm being lazy, that's why.
-export const getJob = (id: number) => {
+export const getJobById = (id: number) => {
 	return data.find((job) => job.id === id);
 };
 
