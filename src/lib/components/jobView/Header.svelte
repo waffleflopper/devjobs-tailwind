@@ -37,9 +37,9 @@
 			class="w-[140px] h-[140px] grid place-items-center"
 			style="background-color: {logoBackground};"
 		>
-			<img src="/{logo}" alt="company logo" />
+			<img src="/{logo}" alt="company logo" class="w-7/12" />
 		</div>
-		<div class="flex-1 flex items-center justify-between p-8">
+		<div class="flex-1 flex items-center justify-between px-8">
 			<div class="flex flex-col">
 				<h3><slot name="company">Company</slot></h3>
 				<p class="mt-2 mb-4">
