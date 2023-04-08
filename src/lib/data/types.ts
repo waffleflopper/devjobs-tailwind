@@ -8,6 +8,7 @@ export interface Job {
 	contract: 'Full Time' | 'Part Time';
 	location: string;
 	website: string;
+	displayUrl?: string;
 	apply: string;
 	description: string;
 	requirements: {
