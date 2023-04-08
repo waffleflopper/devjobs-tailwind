@@ -21,6 +21,18 @@
 	>
 		<slot /></button
 	>
+{:else}
+	<!-- svelte-ignore a11y-missing-attribute -->
+	<a
+		class="w-32 h-12 rounded {className} grid place-items-center"
+		class:primary={theme === 'primary'}
+		class:secondary={theme === 'secondary'}
+		class:transparent={theme === 'transparent'}
+		class:tablet={$innerWidth < $tabletBreak && !staticWidth}
+		{...$$restProps}
+	>
+		<slot />
+	</a>
 {/if}
 
 <style lang="postcss">
@@ -28,7 +40,7 @@
 		@apply bg-[#5964E0] text-white font-bold p-1 hover:bg-[#939BF4] active:bg-[#5964E0];
 	}
 	.secondary {
-		@apply bg-indigo-200 text-indigo-800 font-bold hover:bg-indigo-300 active:bg-indigo-200 dark:bg-[#6E8098] dark:hover:bg-[#9DAEC2] dark:text-white m-2 dark:active:bg-[#6e8098];
+		@apply bg-[rgb(238,239,252)] text-indigo-800 font-bold hover:bg-[rgb(197,201,244)] active:bg-[rgb(238,239,252)] dark:bg-[#6E8098] dark:hover:bg-[#9DAEC2] dark:text-white m-2 dark:active:bg-[#6e8098];
 	}
 	.transparent {
 		@apply bg-transparent dark:hover:bg-white/5 hover:bg-black/5;
