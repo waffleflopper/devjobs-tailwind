@@ -31,7 +31,7 @@
 	a,
 	a:link,
 	a:visited {
-		@apply text-[#5964E0] font-bold hover:bg-[#5964E0] hover:text-white;
+		@apply text-[#5964E0] font-bold;
 	}
 	a:focus-visible {
 		@apply outline-none bg-indigo-700 text-white;
