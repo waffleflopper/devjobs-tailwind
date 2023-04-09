@@ -39,3 +39,12 @@ export const getJobsByContract = (contract: string) => {
 		return data.filter((job) => job.contract.toUpperCase().includes(contract));
 	}
 };
+
+export const getLocations = () => {
+	//make an array of all locations using a map
+	const locations = new Map<string, string>();
+	for (const job of data) {
+		locations.set(job.location, job.location);
+	}
+	return [...locations].map(([key, value]) => `${value}`);
+};

@@ -1,6 +1,8 @@
 <script lang="ts">
 	import Button from '$components/Button.svelte';
 	import Checkbox from './Checkbox.svelte';
+	import Dropdown from './Dropdown.svelte';
+	import { getLocations } from '$lib/data/api';
 	import { innerWidth, tabletBreak } from '$lib/data/stores';
 	import { createEventDispatcher } from 'svelte';
 	import type { searchParams } from '$lib/data/types';
@@ -19,7 +21,8 @@
 	 * TODO: What type is this in sveltekit?
 	 */
 	function changeLocation(e: any) {
-		locationValue = e.target.value;
+		console.log(e.detail);
+		locationValue = e.detail;
 		search();
 	}
 	function changeQuery(e: any) {
@@ -56,12 +59,13 @@
 	<div
 		class="flex-1 before:z-10 before:absolute before:bg-[url('$assets/desktop/icon-location.svg')] before:w-6 before:h-6 before:bg-no-repeat before:bg-center before:top-7 before:left-4 relative"
 	>
-		<input
+		<Dropdown on:selectedOption={changeLocation} options={[' ', ...getLocations()]} />
+		<!-- <input
 			type="text"
 			placeholder="Filter by location..."
 			class="min-w-[11rem] w-full h-20 pl-14 pr-1 -mt-px -ml-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-l-lg sm:mt-0 sm:first:ml-0 sm:first:rounded-tr-none sm:last:rounded-bl-none sm:last:rounded-r-lg relative dark:bg-[--light-midnight] focus:outline-none"
 			on:input={changeLocation}
-		/>
+		/> -->
 	</div>
 	<div class="divider" />
 
